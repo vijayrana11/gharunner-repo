@@ -13,7 +13,7 @@ jobs:
     runs-on: gharunner-test
     steps:
        - name: test connection
-         shell: pwsh
+         shell: powershell
          run: |
            Write-Host "Connecting to server $env:WIN_HOST"
           # $password = ConvertTo-SecureString $env:PASSWORD -AsPlainText -Force
