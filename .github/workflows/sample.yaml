@@ -1,0 +1,27 @@
+name: sample workflow to test pipeline
+
+on:
+  workflow_dispatch
+
+env:
+  WIN_HOST:	20.244.10.95
+  WIN_USER:	gharunner
+  WIN_PASSWORD:	gharunner@123
+
+jobs:
+  testpipeline:
+    runs-on: gharunner-test
+    steps:
+       - name: test connection
+         shell: pwsh
+         run: |
+          $password = ConvertTo-SecureString $env:PASSWORD -AsPlainText -Force
+          $cred = New-Object System.Management.Automation.PSCredential ($env.WIN_USER, $password)
+
+        
+          # Check date on remote server
+          Invoke-Command -ComputerName $env.WIN_HOST -Credential $cred -ScriptBlock {
+            Get-Date
+          } 
+     
+  
