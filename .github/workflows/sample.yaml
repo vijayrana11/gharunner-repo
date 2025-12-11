@@ -1,10 +1,10 @@
 name: sample workflow to test pipeline
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
-  WIN_HOST:	20.244.10.95
+  WIN_HOST:	"20.244.10.95"
   WIN_USER:	gharunner
   WIN_PASSWORD:	gharunner@123
 
