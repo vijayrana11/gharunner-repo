@@ -15,13 +15,14 @@ jobs:
        - name: test connection
          shell: pwsh
          run: |
-          $password = ConvertTo-SecureString $env:PASSWORD -AsPlainText -Force
-          $cred = New-Object System.Management.Automation.PSCredential ($env.WIN_USER, $password)
+           Write-Host "Connecting to server $env:WIN_HOST"
+          # $password = ConvertTo-SecureString $env:PASSWORD -AsPlainText -Force
+          # $cred = New-Object System.Management.Automation.PSCredential ($env.WIN_USER, $password)
 
         
-          # Check date on remote server
-          Invoke-Command -ComputerName $env.WIN_HOST -Credential $cred -ScriptBlock {
-            Get-Date
-          } 
+          # # Check date on remote server
+          # Invoke-Command -ComputerName $env.WIN_HOST -Credential $cred -ScriptBlock {
+          #   Get-Date
+          # } 
      
   
