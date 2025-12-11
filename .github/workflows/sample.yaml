@@ -15,7 +15,7 @@ jobs:
        - name: test connection
          shell: powershell
          run: |
-          $password = ConvertTo-SecureString $env:PASSWORD -AsPlainText -Force
+          $password = ConvertTo-SecureString $env:WIN_PASSWORD -AsPlainText -Force
           $cred = New-Object System.Management.Automation.PSCredential ($env.WIN_USER, $password)
 
         
