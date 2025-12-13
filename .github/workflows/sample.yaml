@@ -10,7 +10,7 @@ env:
 
 jobs:
   testpipeline:
-    runs-on: gharunner-test
+    runs-on: gharunner-test0
     steps:
        - name: test connection
          shell: powershell
