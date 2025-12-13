@@ -15,6 +15,7 @@ jobs:
        - name: test connection
          shell: powershell
          run: |
+          Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$env:WIN_HOST" -Force
           $password = ConvertTo-SecureString $env:WIN_PASSWORD -AsPlainText -Force
           $cred = New-Object System.Management.Automation.PSCredential ($env:WIN_USER, $password)
 
