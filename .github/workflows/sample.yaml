@@ -16,7 +16,7 @@ jobs:
          shell: powershell
          run: |
           $password = ConvertTo-SecureString $env:WIN_PASSWORD -AsPlainText -Force
-          $cred = New-Object System.Management.Automation.PSCredential ($env.WIN_USER, $password)
+          $cred = New-Object System.Management.Automation.PSCredential ($env:WIN_USER, $password)
 
         
           # Check date on remote server
