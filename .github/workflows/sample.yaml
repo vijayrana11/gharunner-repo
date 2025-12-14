@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  WIN_HOST:	"20.244.41.7"
+  WIN_HOST:	"20.244.26.187"
   WIN_USER:	"gharunner"
   WIN_PASSWORD:	"gharunner@123"
 
