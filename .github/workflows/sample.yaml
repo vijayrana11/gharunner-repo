@@ -21,7 +21,7 @@ jobs:
 
         
           # Check date on remote server
-          Invoke-Command -ComputerName $env:WIN_HOST -Credential $cred -ScriptBlock {
+          Invoke-Command -ComputerName $env:WIN_HOST -Credential $cred -Authentication Basic -ScriptBlock {
             Get-Date
           }
           
