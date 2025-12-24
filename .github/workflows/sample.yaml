@@ -11,6 +11,9 @@ env:
 jobs:
   testpipeline:
     runs-on: gharunner-test0
+    strategy:
+      matrix:
+        host: [10.0.0.5, 10.0.0.6]
     steps:
        - name: test connection
          shell: powershell
@@ -21,7 +24,7 @@ jobs:
 
         
           # Check date on remote server
-          Invoke-Command -ComputerName $env:WIN_HOST -Credential $cred -Authentication Basic -ScriptBlock {
+          Invoke-Command -ComputerName ${{ matrix.host }} -Credential $cred -Authentication Basic -ScriptBlock {
             Get-Date
             gci env: | % { $_.Name }
             #Get-ChildItem ENV:
