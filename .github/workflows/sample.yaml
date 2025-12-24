@@ -18,13 +18,14 @@ jobs:
        - name: test connection
          shell: powershell
          run: |
+          $hostname = "${{ matrix.host }}"
           # Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$env:WIN_HOST" -Force
           $password = ConvertTo-SecureString $env:WIN_PASSWORD -AsPlainText -Force
           $cred = New-Object System.Management.Automation.PSCredential ($env:WIN_USER, $password)
 
         
           # Check date on remote server
-          Invoke-Command -ComputerName ${{ matrix.host }} -Credential $cred -Authentication Basic -ScriptBlock {
+          Invoke-Command -ComputerName $hostname -Credential $cred -Authentication Basic -ScriptBlock {
             Get-Date
             gci env: | % { $_.Name }
             #Get-ChildItem ENV:
